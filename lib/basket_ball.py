@@ -1,3 +1,4 @@
+
 def game_dict():
     return {
         "home": {
@@ -182,3 +183,63 @@ def game_dict():
             ]
         }
     }
+    
+def get_all_players():
+    all_players = game_dict()['home']['players'] + game_dict()['away']['players']
+    return all_players
+
+    # home_game = game_dict()['home']['players']
+    # away_game = game_dict()['away']['players']
+    # all_games = home_game + away_game
+    # return all_games
+
+
+def num_points_per_game(player_name):
+    for player in get_all_players():
+        if player['name'] == player_name:
+            return player['points_per_game']
+        
+def player_age(player_name):
+    for player in get_all_players():
+        if player['name'] == player_name:
+            return player['age']
+
+def team_colors(team_name):
+    if game_dict()['home']['team_name'] == team_name:
+        return game_dict()['home']['colors']
+    if game_dict()['away']['team_name'] == team_name:
+        return game_dict()['away']['colors']
+    
+    # if team_name == "Cleveland Cavaliers":
+    #     return game_dict()["home"]["colors"]
+    # if team_name == "Washington Wizards":
+    #     return game_dict()["away"]["colors"]
+
+def team_names():
+    return [game_dict()["home"]["team_name"], game_dict()["away"]["team_name"]]
+
+    # home_team = game_dict()['home']['team_name'] 
+    # away_team = game_dict()['away']['team_name']
+    # return [home_team, away_team]
+
+def player_numbers(team_name):
+    player_numbers = []
+    if team_name == game_dict()["home"]["team_name"]:
+        for player in game_dict()["home"]["players"]:
+            player_numbers.append(player['number'])
+            
+    if  team_name == game_dict()["away"]["team_name"]:
+        for player in game_dict()["away"]["players"]:
+            player_numbers.append(player['number'])
+            
+    return player_numbers
+
+def player_stats(player_name):
+    for player in get_all_players():
+        if player['name'] == player_name:
+            return player
+
+def average_rebounds_by_shoe_brand():
+    
+    pass
+
